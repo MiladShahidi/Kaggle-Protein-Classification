@@ -10,4 +10,8 @@ I use random flipping and rotation to augment the training data. My experiments 
 
 Efficiently handling big datasets is an importnat part of training CNNs on large datasets. In this case, There are nearly 100,000 images in the training set (more than 30GB on disk). Since the data is too large to fit in memory, I design a data pipeline that loads the images gradually during training from a Google Cloud Storage bucket.
 
-Training is done on a single GPU on Google Cloud ML Engine. The complete Tensorflow training code is available [here](https://github.com/MiladShahidi/Kaggle-Protein-Classification/blob/master/trainer/model.py).
+I manually tuned the learning rate during traingin, lowering it whenever the validation loss stops improving. The following graphs show training and validation losses along with macor F1 Score. F1 score combines precision and recall and is a more suitable performace metric than accuracy, in problems with class imbalanced.
+
+<img src="images/plots.png" align="center">
+
+Training is done on a single Tesla P100 GPU on Google Cloud ML Engine. The complete Tensorflow training code is available [here](https://github.com/MiladShahidi/Kaggle-Protein-Classification/blob/master/trainer/model.py).
