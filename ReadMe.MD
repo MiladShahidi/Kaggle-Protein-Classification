@@ -1,4 +1,4 @@
-# Image Classification with Deep Convolutional Neural Networks
+# Image Classification with Deep Convolutional Neural Networks in TensorFlow
 
 <img src="images/proteins.png" align="right" width="256">
 
@@ -10,8 +10,8 @@ Efficiently handling big datasets is an importnat part of training CNNs on large
 
 I use random flipping and rotation to augment the training data. My experiments indicate that this improves the performance of the model significantly. To address the problem of imbalance in the data, I optimaize the classification threshold for each class by searching for the empirically optimal threshold in the validation set.
 
-Given that training multiple models for hyperparameter search is computatinally expensive, I **manually tuned the learning rate** during training, lowering it whenever the validation loss stopped improving. The following graphs show training and validation losses along with macor F1 Score. F1 score combines precision and recall and is a more suitable performace metric than accuracy, in problems with class imbalanced.
-
 <img src="images/plots.png" align="center">
 
-Training is done on a single Tesla P100 GPU on Google Cloud ML Engine. The complete Tensorflow training code is available [here](https://github.com/MiladShahidi/Kaggle-Protein-Classification/blob/master/trainer/model.py).
+Given that training multiple models for hyperparameter search is computatinally expensive, I **manually tuned the learning rate** during training, lowering it whenever the validation loss stopped improving. The graphs above show training and validation losses along with macor F1 Score. F1 score combines precision and recall and is a more suitable performace metric than accuracy, in problems with class imbalanced.
+
+Training was done on a single Tesla P100 GPU on Google Cloud ML Engine. The complete TensorFlow training code is available [here](https://github.com/MiladShahidi/Kaggle-Protein-Classification/blob/master/trainer/model.py).
